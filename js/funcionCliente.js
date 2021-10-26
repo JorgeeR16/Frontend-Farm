@@ -1,21 +1,23 @@
-function traerCategorias(){
+function traerClientes(){
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Category/all",
+            url:"http://129.151.119.148:8080/api/Client/all",
             type:"GET",
             datatype:"JSON",
             success:function(respuesta){
                 console.log(respuesta);
-                pintarRespuesta1(respuesta);
+                pintarRespuesta3(respuesta);
             }
         }
     );
 }
 
-function guardarCategorias(){
+function guardarClientes(){
     let var2 = {
-        name:$("#Cname").val(),
-        description:$("#Cdescription").val()
+        name:$("#Tname").val(),
+        email:$("#Temail").val(),
+        password:$("#Tpassword").val(),
+        age:$("#Tage").val()
         };
       
     $.ajax(
@@ -24,63 +26,71 @@ function guardarCategorias(){
             contentType: "application/json; charset=utf-8",
             dataType: 'JSON',
             data: JSON.stringify(var2),   
-            url:"http://129.151.119.148:8080/api/Category/save",
+            url:"http://129.151.119.148:8080/api/Client/save",
 
             success:function(response) {
-                    console.log(response);
+                console.log(response);
+                $("#Tname").val("");
+                $("#Temail").val("");
+                $("#Tpassword").val("");
+                $("#Tage").val("");
                 console.log("Se guardo correctamente");
                 alert("Se guardo correctamente");
-                traerCategorias()
+                traerClientes()
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerCategorias()
+                traerClientes()
+                console.log(errorThrown);
                 alert("No se guardo correctamente");
             }
         }
     );
 }
 
-function actualizarCategorias(idElemento){
+function actualizarClientes(idElemento1){
     let myData={
-        id:idElemento,
-        name:$("#Cname").val(),
-        description:$("#Cdescription").val()
-
+        idClient:idElemento1,
+        name:$("#Tname").val(),
+        email:$("#Temail").val(),
+        password:$("#Tpassword").val(),
+        age:$("#Tage").val()
     };
+
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Category/update",
+            url:"http://129.151.119.148:8080/api/Client/update",
             type:"PUT",
             data:dataToSend,
             contentType:"application/JSON",
             datatype:"JSON",
 
             success:function(respuesta){
-                $("#resultado").empty();
-                $("#id").val("");
-                $("#Cname").val("");
-                $("#Cdescription").val("");
-                traerCategorias();
+                $("#Tname").val("");
+                $("#Temail").val("");
+                $("#Tpassword").val("");
+                $("#Tage").val("");
+                traerClientes();
                 alert("se ha Actualizado correctamente la categoria")
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerCategorias()
+                traerClientes();
                 alert("No se guardo correctamente");
             }
         }
     );
 }
 
-function borrarCategorias(idElemento){
+
+function borrarClientes(idElemento){
     let myData={
-        id:idElemento
+        idClient:idElemento
     };
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Category/"+idElemento,
+            url:"http://129.151.119.148:8080/api/Client/"+idElemento,
             type:"DELETE",
             data:dataToSend,
             contentType:"application/JSON",
@@ -88,28 +98,30 @@ function borrarCategorias(idElemento){
 
             success:function(respuesta){
                 $("#resultado").empty();
-                traerCategorias();
+                traerClientes();
                 alert("Se ha Eliminado.")
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerCategorias();
+                traerClientes();
                 alert("No se guardo correctamente");
             }
         }
     );
 }
 
-function pintarRespuesta1(respuesta){
+function pintarRespuesta3(respuesta){
 
     let myTable="<table>";
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].name+"</td>";
-        myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td> <button onclick=' actualizarCategorias("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarCategorias("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td>"+respuesta[i].email+"</td>";
+        myTable+="<td>"+respuesta[i].password+"</td>";
+        myTable+="<td>"+respuesta[i].age+"</td>";
+        myTable+="<td> <button onclick=' actualizarClientes("+respuesta[i].idClient+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarClientes("+respuesta[i].idClient+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
-    $("#categoria").html(myTable);
+    $("#cliente").html(myTable);
 }

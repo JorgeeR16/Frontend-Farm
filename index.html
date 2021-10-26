@@ -2,8 +2,9 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="js/funcioncategoria.js"></script>
-
+    <script type="text/javascript" src="js/funcionCategoria.js"></script>
+    <script type="text/javascript" src="js/funcionesFinca.js"></script>
+    <script type="text/javascript" src="js/funcionCliente.js"></script>
     <title>FarmUSA</title>
 </head>
 <body>
@@ -20,7 +21,63 @@
         <button onclick="traerCategorias()"> Consultar</button>
         <button onclick="guardarCategorias()"> Guardar</button>
     </div>
+
     <!--- Finca --->
+    <h2> Finca</h2>
+    <div id ="finca"></div>
+    <div>
+        <input type="text" id ="Fname" placeholder="Name">
+        <input type="text" id ="Faddress" placeholder="Address">
+        <input type="number" id ="Fextension" placeholder="Extension">
+        <input type="text" id ="Fdescription" placeholder="Description">
+        <input type="number" id ="Fcategory" placeholder="Category">
+    </div><br>
+    <div>
+        <button onclick="traerFincas()"> Consultar</button>
+        <button onclick="guardarFincas()"> Guardar</button>
+    </div>
+
+    <!--- Cliente --->
+    <h2> Cliente</h2>
+    <div id ="cliente"></div>
+    <div>
+        <input type="text" id ="Tname" placeholder="Name">
+        <input type="text" id ="Temail" placeholder="Email">
+        <input type="text" id ="Tpassword" placeholder="Password">
+        <input type="number" id ="Tage" placeholder="Age">
+    </div><br>
+    <div>
+        <button onclick="traerClientes()"> Consultar</button>
+        <button onclick="guardarClientes()"> Guardar</button>
+    </div>
+
+    <!--- Mensaje --->
+    <h2> Mensaje</h2>
+    <div id ="mensaje"></div>
+    <div>
+        <input type="text" id ="Mmessage" placeholder="Message">
+        <input type="number" id ="Mclient" placeholder="Client">
+        <input type="number" id ="Mfarm" placeholder="Farm">
+    </div><br>
+    <div>
+        <button onclick="traerMensajes()"> Consultar</button>
+        <button onclick="guardarMensajes()"> Guardar</button>
+    </div>
+    
+    <!--- Reservacion --->
+    <h2> Reservacion</h2>
+    <div id ="reservacion"></div>
+    <div>
+        <input type="date" id ="Rstartdate" placeholder="Start date">
+        <input type="date" id ="Rdevolutiondate" placeholder="Devolution date">
+        <input type="number" id ="Rclient" placeholder="Client">
+        <input type="number" id ="Rfarm" placeholder="Farm">
+    </div><br>
+    <div>
+        <button onclick="traerReservationes()"> Consultar</button>
+        <button onclick="guardarReservationes()"> Guardar</button>
+    </div>
+   
 
 
 
