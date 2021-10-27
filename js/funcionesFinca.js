@@ -1,7 +1,7 @@
 function traerFincas(){
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Farm/all",
+            url:"http://129.151.106.144:8080/api/Farm/all",
             type:"GET",
             datatype:"JSON",
             success:function(respuesta){
@@ -27,7 +27,7 @@ function guardarFincas(){
             contentType: "application/json; charset=utf-8",
             dataType: 'JSON',
             data: JSON.stringify(var2),   
-            url:"http://129.151.119.148:8080/api/Farm/save",
+            url:"http://129.151.106.144:8080/api/Farm/save",
 
             success:function(response) {
                 console.log(response);
@@ -63,7 +63,7 @@ function actualizarFincas(idElemento){
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Farm/update",
+            url:"http://129.151.106.144:8080/api/Farm/update",
             type:"PUT",
             data:dataToSend,
             contentType:"application/JSON",
@@ -94,7 +94,7 @@ function borrarFincas(idElemento){
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.119.148:8080/api/Farm/"+idElemento,
+            url:"http://129.151.106.144:8080/api/Farm/"+idElemento,
             type:"DELETE",
             data:dataToSend,
             contentType:"application/JSON",
