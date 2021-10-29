@@ -1,7 +1,7 @@
 function traerMensajes(){
     $.ajax(
             {
-            url:"http://129.151.106.144:8080/api/Message/all",
+            url:"http://144.22.57.189:8080/api/Message/all",
             type:"GET",
             datatype:"JSON",
             success:function(respuesta){
@@ -25,7 +25,7 @@ function guardarMensajes(){
             contentType: "application/json; charset=utf-8",
             dataType: 'JSON',
             data: JSON.stringify(var2),   
-            url:"http://129.151.106.144:8080/api/Message/save",
+            url:"http://144.22.57.189:8080/api/Message/save",
 
             success:function(response) {
                 console.log(response);
@@ -57,7 +57,7 @@ function actualizarMensajes(idElemento1){
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.106.144:8080/api/Message/update",
+            url:"http://144.22.57.189:8080/api/Message/update",
             type:"PUT",
             data:dataToSend,
             contentType:"application/JSON",
@@ -86,7 +86,7 @@ function borrarMensajes(idElemento){
     let dataToSend=JSON.stringify(myData);
     $.ajax(
             {
-            url:"http://129.151.106.144:8080/api/Message/"+idElemento,
+            url:"http://144.22.57.189:8080/api/Message/"+idElemento,
             type:"DELETE",
             data:dataToSend,
             contentType:"application/JSON",
