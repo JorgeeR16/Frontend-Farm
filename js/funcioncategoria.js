@@ -30,7 +30,9 @@ function guardarCategorias(){
                     console.log(response);
                 console.log("Se guardo correctamente");
                 alert("Se guardo correctamente");
-                traerCategorias()
+                traerCategorias();
+                $("#Cname").val("");
+                $("#Cdescription").val("");
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 traerCategorias()
@@ -59,7 +61,6 @@ function actualizarCategorias(idElemento){
 
             success:function(respuesta){
                 $("#resultado").empty();
-                $("#id").val("");
                 $("#Cname").val("");
                 $("#Cdescription").val("");
                 traerCategorias();

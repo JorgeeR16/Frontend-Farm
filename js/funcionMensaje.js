@@ -45,9 +45,9 @@ function guardarMensajes(){
     );
 }
 
-function actualizarMensajes(idElemento1){
+function actualizarMensajes(idElemento){
     let myData={
-        idMessage:idElemento1,
+        idMessage:idElemento,
         messageText:$("#Mmessage").val(),
         client:{idClient:$("#Mclient").val()},
         farm:{id:$("#Mfarm").val()}       
@@ -66,7 +66,7 @@ function actualizarMensajes(idElemento1){
             success:function(respuesta){
                 $("#Mmessage").val("");
                 $("#Mclient").val("");
-                $("#Mfarm").val("");     
+                $("#Mfarm").val("");    
                 traerMensajes();
                 alert("se ha Actualizado correctamente la categoria")
             },

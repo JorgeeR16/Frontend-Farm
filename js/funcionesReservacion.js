@@ -1,4 +1,4 @@
-function traerReservationes(){
+function traerReservaciones(){
     $.ajax(
             {
             url:"http://144.22.57.189:8080/api/Reservation/all",
@@ -12,7 +12,7 @@ function traerReservationes(){
     );
 }
 
-function guardarReservationes(){
+function guardarReservaciones(){
     let var2 = {
         startDate:$("#Rstartdate").val(),
         devolutionDate:$("#Rdevolutiondate").val(),
@@ -30,15 +30,16 @@ function guardarReservationes(){
 
             success:function(response) {
                 console.log(response);
-                $("#Mmessage").val("");
-                $("#Mclient").val("");
-                $("#Mfarm").val("");     
+                $("#Rstartdate").val("");
+                $("#Rdevolutiondate").val("");
+                $("#Rclient").val("");
+                $("#Rfarm").val(""); 
                 console.log("Se guardo correctamente");
                 alert("Se guardo correctamente");
-                traerMensajes()
+                traerReservaciones()
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerMensajes()
+                traerReservaciones()
                 console.log(errorThrown);
                 alert("No se guardo correctamente");
             }
@@ -46,12 +47,13 @@ function guardarReservationes(){
     );
 }
 
-function actualizarMensajes(idElemento1){
+function actualizarReservaciones(idElemento1){
     let myData={
         idReservation:idElemento1,
-        messageText:$("#Mmessage").val(),
-        client:{idClient:$("#Mclient").val()},
-        farm:{id:$("#Mfarm").val()}       
+        startDate:$("#Rstartdate").val(),
+        devolutionDate:$("#Rdevolutiondate").val(),
+        client:{idClient:$("#Rclient").val()},
+        farm:{id:$("#Rfarm").val()}       
     };
 
     console.log(myData);
@@ -65,14 +67,15 @@ function actualizarMensajes(idElemento1){
             datatype:"JSON",
 
             success:function(respuesta){
-                $("#Mmessage").val("");
-                $("#Mclient").val("");
-                $("#Mfarm").val("");     
-                traerMensajes();
+                $("#Rstartdate").val("");
+                $("#Rdevolutiondate").val("");
+                $("#Rclient").val("");
+                $("#Rfarm").val("");   
+                traerReservaciones();
                 alert("se ha Actualizado correctamente la categoria")
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerMensajes();
+                traerReservaciones();
                 alert("No se guardo correctamente");
             }
         }
@@ -80,7 +83,7 @@ function actualizarMensajes(idElemento1){
 }
 
 
-function borrarMensajes(idElemento){
+function borrarReservaciones(idElemento){
     let myData={
         idReservation:idElemento
     };
@@ -95,11 +98,11 @@ function borrarMensajes(idElemento){
 
             success:function(respuesta){
                 $("#resultado").empty();
-                traerMensajes();
+                traerReservaciones();
                 alert("Se ha Eliminado.")
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                traerMensajes();
+                traerReservaciones();
                 alert("No se guardo correctamente");
             }
         }
@@ -115,8 +118,8 @@ function pintarRespuesta5(respuesta){
         myTable+="<td>"+respuesta[i].devolutionDate+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].farm.name+"</td>";
-        myTable+="<td> <button onclick=' actualizarMensajes("+respuesta[i].idReservation+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarMensajes("+respuesta[i].idReservation+")'>Borrar</button>";
+        myTable+="<td> <button onclick=' actualizarReservaciones("+respuesta[i].idReservation+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarReservaciones("+respuesta[i].idReservation+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
