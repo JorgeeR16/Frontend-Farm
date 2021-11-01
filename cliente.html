@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" context="widht=device-width, initial-scale-1">
+    <script type="text/javascript" src="js/funcionCliente.js"></script>
+    <title>FarmUSA</title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" style="color:#007bff" href="index.html"style="color:#0e0f0f" > Inicio  </a>
+            <ul class="nav  d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="finca.html">Finca</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="categoria.html">Categoria</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="cliente.html">Cliente</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mensaje.html">Mensaje</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reserva.html">Reserva</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="cover4 d-flex justify-content-center align-items-center">
+            <h1>
+                Cliente
+            </h1>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8 mt-3 d-flex  justify-content-center align-items-center">
+
+                <div id="cliente"></div>
+            </div>
+            <div class="col-6 col-md-4 cuerpo mt-3 ">asd</div>
+            <div class="col-12 col-md-8  input-group mt-3 ">
+
+                <input class="form-control" type="text" id="Tname" placeholder="Name">
+                <input class="form-control" type="text" id="Temail" placeholder="Email">
+                <input class="form-control" type="text" id="Tpassword" placeholder="Password">
+                <input class="form-control" type="number" id="Tage" placeholder="Age">
+
+                <div>
+                    <button class="btn btn-outline-secondary" onclick="guardarClientes()"> Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = traerClientes();
+    </script>
+
+</body>
+
+</html>

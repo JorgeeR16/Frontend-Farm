@@ -16,8 +16,8 @@ function guardarReservaciones(){
     let var2 = {
         startDate:$("#Rstartdate").val(),
         devolutionDate:$("#Rdevolutiondate").val(),
-        client:{idClient:$("#Rclient").val()},
-        farm:{id:$("#Rfarm").val()}       
+        client:{idClient:$("#select-client").val()},
+        farm:{id:$("#select-farm").val()}       
         };
 
     $.ajax(
@@ -52,8 +52,8 @@ function actualizarReservaciones(idElemento1){
         idReservation:idElemento1,
         startDate:$("#Rstartdate").val(),
         devolutionDate:$("#Rdevolutiondate").val(),
-        client:{idClient:$("#Rclient").val()},
-        farm:{id:$("#Rfarm").val()}       
+        client:{idClient:$("#select-client").val()},
+        farm:{id:$("#select-farm").val()}       
     };
 
     console.log(myData);
@@ -118,10 +118,43 @@ function pintarRespuesta5(respuesta){
         myTable+="<td>"+respuesta[i].devolutionDate+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].farm.name+"</td>";
-        myTable+="<td> <button onclick=' actualizarReservaciones("+respuesta[i].idReservation+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarReservaciones("+respuesta[i].idReservation+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick=' actualizarReservaciones("+respuesta[i].idReservation+")'>Actualizar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick='borrarReservaciones("+respuesta[i].idReservation+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#reservacion").html(myTable);
+}
+
+function autoInicioCliente(){
+    console.log("se esta ejecutando");
+    $.ajax(
+        {
+        url:"http://144.22.57.189:8080/api/Client/all",
+        type:"GET",
+        datatype:"JSON",
+        success : function(json){
+            let $select = $("#select-client");
+            $.each(json, function(id, name){
+                $select.append("<option value="+ name.idClient +">" +name.name+"</option>");
+                console.log("select "+name.idClient);
+            });
+        }
+    })
+}
+function autoInicioFinca(){
+    console.log("se esta ejecutando");
+    $.ajax(
+        {
+        url:"http://144.22.57.189:8080/api/Farm/all",
+        type:"GET",
+        datatype:"JSON",
+        success : function(json){
+            let $select = $("#select-farm");
+            $.each(json, function(id, name){
+                $select.append("<option value="+ name.id +">" +name.name+"</option>");
+                console.log("select "+name.id);
+            });
+        }
+    })
 }

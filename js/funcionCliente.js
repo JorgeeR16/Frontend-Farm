@@ -118,8 +118,8 @@ function pintarRespuesta3(respuesta){
         myTable+="<td>"+respuesta[i].email+"</td>";
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].age+"</td>";
-        myTable+="<td> <button onclick=' actualizarClientes("+respuesta[i].idClient+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarClientes("+respuesta[i].idClient+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick=' actualizarClientes("+respuesta[i].idClient+")'>Actualizar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick='borrarClientes("+respuesta[i].idClient+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";

@@ -16,7 +16,7 @@ function guardarFincas(){
     let var2 = {
         address:$("#Faddress").val(),
         extension:$("#Fextension").val(),
-        category:{id:$("#Fcategory").val()},
+        category:{id:$("#select-category").val()},
         name:$("#Fname").val(),
         description:$("#Fdescription").val(),
         };
@@ -54,7 +54,7 @@ function actualizarFincas(idElemento){
         id:idElemento,
         address:$("#Faddress").val(),
         extension:$("#Fextension").val(),
-        category:{id:$("#Fcategory").val()},
+        category:{id:$("#select-category").val()},
         name:$("#Fname").val(),
         description:$("#Fdescription").val(),
 
@@ -123,10 +123,27 @@ function pintarRespuesta(respuesta){
         myTable+="<td>"+respuesta[i].extension+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
         myTable+="<td>"+respuesta[i].category.name+"</td>";
-        myTable+="<td> <button onclick=' actualizarFincas("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarFincas("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick='actualizarFincas("+respuesta[i].id+")'>Actualizar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary'onclick='borrarFincas("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#finca").html(myTable);
+}
+
+function autoInicioCategoria(){
+    console.log("se esta ejecutando");
+    $.ajax(
+        {
+        url:"http://144.22.57.189:8080/api/Category/all",
+        type:"GET",
+        datatype:"JSON",
+        success : function(json){
+            let $select = $("#select-category");
+            $.each(json, function(id, name){
+                $select.append("<option value="+ name.id +">" +name.name+"</option>");
+                console.log("select "+name.id);
+            });
+        }
+    })
 }
