@@ -115,9 +115,9 @@ function borrarFincas(idElemento){
 
 function pintarRespuesta(respuesta){
 
-    let myTable="<table>";
+    let myTable="<table  class='table table-bordered'> <thead> <tr><th>Name</th><th>Address</th><th>Extension</th><th>Description</th><th>Category</th><th>Actions</th></tr> </thead>";
     for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
+        myTable+="<tr class='thead-light'>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].address+"</td>";
         myTable+="<td>"+respuesta[i].extension+"</td>";

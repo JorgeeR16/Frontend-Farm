@@ -108,9 +108,9 @@ function borrarMensajes(idElemento){
 
 function pintarRespuesta4(respuesta){
 
-    let myTable="<table>";
+    let myTable="<table  class='table' > <thead class='thead-dark'> <tr><th>Message text</th><th>Client</th><th>Farm</th><th>Update</th><th>Delete</th></tr> </thead>";
     for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
+        myTable+="<tr class='thead-light table-bordered'>";
         myTable+="<td>"+respuesta[i].messageText+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].farm.name+"</td>";

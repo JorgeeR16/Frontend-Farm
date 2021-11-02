@@ -101,9 +101,9 @@ function borrarCategorias(idElemento) {
 }
 
 function pintarRespuesta1(respuesta) {
-    let myTable="<table>";
+    let myTable="<table class='table table-bordered'> <thead> <tr><th>Name</th><th>Description</th><th>Actions</th></tr> </thead>";
     for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
+        myTable+="<tr class='thead-light'>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
         myTable+="<td> <button class='btn btn-outline-secondary' onclick='actualizarCategorias("+respuesta[i].id+")'>Actualizar</button>";

@@ -111,9 +111,11 @@ function borrarClientes(idElemento){
 
 function pintarRespuesta3(respuesta){
 
-    let myTable="<table>";
+    let myTable="<table class='table table-bordered'> <thead> <tr><th>Name</th><th>Email</th><th>Password</th><th>Age</th> <th>Actions</th></tr> </thead>";
+
+
     for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
+        myTable+="<tr class='thead-light'>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].email+"</td>";
         myTable+="<td>"+respuesta[i].password+"</td>";

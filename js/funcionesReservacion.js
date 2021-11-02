@@ -111,9 +111,9 @@ function borrarReservaciones(idElemento){
 
 function pintarRespuesta5(respuesta){
 
-    let myTable="<table>";
+    let myTable="<table  class='table' > <thead class='thead-dark'> <tr><th>Start date</th><th>Devolution date</th><th>Client</th><th>Farm</th><th>Update</th><th>Delete</th></tr> </thead>";
     for(i=0;i<respuesta.length;i++){
-        myTable+="<tr>";
+        myTable+="<tr class='thead-light table-bordered'>";
         myTable+="<td>"+respuesta[i].startDate+"</td>";
         myTable+="<td>"+respuesta[i].devolutionDate+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
