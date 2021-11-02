@@ -29,10 +29,12 @@ function guardarCategorias() {
             success: function (response) {
                 console.log(response);
                 console.log("Se guardo correctamente");
-                alert("Se guardo correctamente");
-                traerCategorias();
                 $("#Cname").val("");
                 $("#Cdescription").val("");
+                alert("Se guardo correctamente");
+                
+                traerCategorias();
+               
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 traerCategorias()
