@@ -101,15 +101,15 @@ function borrarCategorias(idElemento) {
 }
 
 function pintarRespuesta1(respuesta) {
-    let myTable="<table class='table table-bordered'> <thead> <tr><th>Name</th><th>Description</th><th>Actions</th></tr> </thead>";
-    for(i=0;i<respuesta.length;i++){
-        myTable+="<tr class='thead-light'>";
-        myTable+="<td>"+respuesta[i].name+"</td>";
-        myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td> <button class='btn btn-outline-secondary' onclick='actualizarCategorias("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button class='btn btn-outline-secondary' onclick='borrarCategorias("+respuesta[i].id+")'>Borrar</button>";
-        myTable+="</tr>";
+    let myTable = "<table  class='table '> <thead class='thead-dark'> <tr><th>Name</th><th>Description</th><th>Update</th><th>Delete</th></tr> </thead>";
+    for (i = 0; i < respuesta.length; i++) {
+        myTable += "<tr class='thead-light table-bordered'>";
+        myTable += "<td>" + respuesta[i].name + "</td>";
+        myTable += "<td>" + respuesta[i].description + "</td>";
+        myTable += "<td> <button class='btn btn-outline-secondary' onclick='actualizarCategorias(" + respuesta[i].id + ")'>Actualizar</button>";
+        myTable += "<td> <button class='btn btn-outline-secondary' onclick='borrarCategorias(" + respuesta[i].id + ")'>Borrar</button>";
+        myTable += "</tr>";
     }
-    myTable+="</table>";
+    myTable += "</table>";
     $("#categoria").html(myTable);
 }

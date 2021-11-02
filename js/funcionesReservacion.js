@@ -70,7 +70,7 @@ function actualizarReservaciones(idElemento1){
                 $("#Rstartdate").val("");
                 $("#Rdevolutiondate").val("");
                 $("#Rclient").val("");
-                $("#Rfarm").val("");   
+                $("#Rfarm").val("");  
                 traerReservaciones();
                 alert("se ha Actualizado correctamente la categoria")
             },
@@ -81,6 +81,8 @@ function actualizarReservaciones(idElemento1){
         }
     );
 }
+
+
 
 
 function borrarReservaciones(idElemento){
@@ -142,6 +144,7 @@ function autoInicioCliente(){
         }
     })
 }
+
 function autoInicioFinca(){
     console.log("se esta ejecutando");
     $.ajax(
