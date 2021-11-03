@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta name="viewport" context="widht=device-width, initial-scale-1">
-    <script type="text/javascript" src="js/funcioncategoria.js"></script>
+    <script type="text/javascript" src="js/funcionCategoria.js"></script>
 
 
     <title>FarmUSA</title>
@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" style="color:#007bff" href="index.html" style="color:#0e0f0f"> <i
@@ -62,7 +63,9 @@
                             <label>Descripcion</label>
                             <input class="form-control" type="text" id="Cdescription" placeholder="Description">
                         </div>
-                        <button class="btn btn-outline-secondary mt-1" onclick="guardarCategorias()"> Guardar</button>
+                        <div style="text-align: center" id="botoncategoria"></div>
+                       <button class='btn btn-outline-secondary mt-1' onclick="guardarCategorias()"> Guardar</button>
+                   
                     </form>
                 </div>
             </div>
@@ -70,7 +73,9 @@
     </div>
     <script>
         window.onload = traerCategorias();
+        
     </script>
+
 </body>
 
 </html>

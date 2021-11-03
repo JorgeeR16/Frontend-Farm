@@ -29,14 +29,13 @@ function guardarReservaciones(){
             url:"http://144.22.57.189:8080/api/Reservation/save",
 
             success:function(response) {
-                console.log(response);
                 $("#Rstartdate").val("");
                 $("#Rdevolutiondate").val("");
                 $("#Rclient").val("");
                 $("#Rfarm").val(""); 
-                console.log("Se guardo correctamente");
-                alert("Se guardo correctamente");
                 traerReservaciones()
+                alert("Se guardo correctamente");
+                console.log("Se guardo correctamente");
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 traerReservaciones()

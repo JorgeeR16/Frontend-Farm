@@ -30,15 +30,16 @@ function guardarFincas(){
             url:"http://144.22.57.189:8080/api/Farm/save",
 
             success:function(response) {
-                console.log(response);
+              
+                alert("Se guardo correctamente")
+                traerFincas()
+                console.log(response)
                 $("#Faddress").val("");
                 $("#Fextension").val("");
                 $("#Fcategory").val("");
                 $("#Fname").val("");
-                $("#Fdescription").val(""),
-                console.log("Se guardo correctamente");
-                alert("Se guardo correctamente");
-                traerFincas()
+                $("#Fdescription").val("");
+                
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 traerFincas()
@@ -123,8 +124,8 @@ function pintarRespuesta(respuesta){
         myTable+="<td>"+respuesta[i].extension+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
         myTable+="<td>"+respuesta[i].category.name+"</td>";
-        myTable+="<td> <button class='btn btn-outline-secondary' onclick='actualizarFincas("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button class='btn btn-outline-secondary'onclick='borrarFincas("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick='actualizarFincas("+respuesta[i].idClient+")'>Actualizar</button>";
+        myTable+="<td> <button class='btn btn-outline-secondary' onclick='borrarFincas("+respuesta[i].idClient+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";

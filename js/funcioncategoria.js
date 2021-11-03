@@ -17,7 +17,7 @@ function guardarCategorias() {
         name: $("#Cname").val(),
         description: $("#Cdescription").val()
     };
-
+    console.log("se esta ejecutando");
     $.ajax(
         {
             type: 'POST',
@@ -26,15 +26,14 @@ function guardarCategorias() {
             data: JSON.stringify(var2),
             url: "http://144.22.57.189:8080/api/Category/save",
 
-            success: function (response) {
-                console.log(response);
-                console.log("Se guardo correctamente");
+            success: function (respuesta) {
+
                 $("#Cname").val("");
                 $("#Cdescription").val("");
-                alert("Se guardo correctamente");
-                
                 traerCategorias();
-               
+                alert("se ha Actualizado correctamente la categoria");
+                console.log("se guardo");
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 traerCategorias()
@@ -62,11 +61,12 @@ function actualizarCategorias(idElemento) {
             datatype: "JSON",
 
             success: function (respuesta) {
-                $("#resultado").empty();
+
                 $("#Cname").val("");
                 $("#Cdescription").val("");
                 traerCategorias();
                 alert("se ha Actualizado correctamente la categoria")
+
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 traerCategorias()
@@ -90,7 +90,7 @@ function borrarCategorias(idElemento) {
             datatype: "JSON",
 
             success: function (respuesta) {
-                $("#resultado").empty();
+
                 traerCategorias();
                 alert("Se ha Eliminado.")
             },
@@ -115,3 +115,4 @@ function pintarRespuesta1(respuesta) {
     myTable += "</table>";
     $("#categoria").html(myTable);
 }
+

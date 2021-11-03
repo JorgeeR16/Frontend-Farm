@@ -29,14 +29,14 @@ function guardarClientes(){
             url:"http://144.22.57.189:8080/api/Client/save",
 
             success:function(response) {
-                console.log(response);
+        
                 $("#Tname").val("");
                 $("#Temail").val("");
                 $("#Tpassword").val("");
                 $("#Tage").val("");
-                console.log("Se guardo correctamente");
-                alert("Se guardo correctamente");
                 traerClientes()
+                alert("Se guardo correctamente");
+                console.log("Se guardo correctamente");
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 traerClientes()

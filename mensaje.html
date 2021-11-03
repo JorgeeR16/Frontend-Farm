@@ -68,16 +68,17 @@
                             <select class="form-control" id="select-farm"></select>
                         </div>
                         <button class="btn btn-outline-secondary mt-1" onclick="guardarMensajes()"> Guardar</button>
+                        <script type="text/javascript">
+                            window.onload = autoInicioCliente();
+                            window.onload = traerMensajes();
+                            window.onload = autoInicioFinca();
+                        </script>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        window.onload = autoInicioCliente();
-        window.onload = traerMensajes();
-        window.onload = autoInicioFinca();
-    </script>
+
 
 
 </body>

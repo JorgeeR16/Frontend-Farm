@@ -29,13 +29,12 @@ function guardarMensajes(){
             url:"http://144.22.57.189:8080/api/Message/save",
 
             success:function(response) {
-                console.log(response);
                 $("#Mmessage").val("");
                 $("#Mclient").val("");
-                $("#Mfarm").val("");     
-                console.log("Se guardo correctamente");
+                $("#Mfarm").val(""); 
+                traerMensajes();    
                 alert("Se guardo correctamente");
-                traerMensajes()
+                console.log("Se guardo correctamente");
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 traerMensajes()
